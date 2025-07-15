@@ -373,4 +373,7 @@ function doGet(e) {
 
 ### Examples
 
-![Using Shortcut](example.gif) ![Google Sheet](image.png)
+![Using Shortcut](example.gif)
+<img src="https://github.com/rukhhhhh/rukh.github.io/blob/98347376080e1f01ac9a0b4263b1191ce20c6f7c/pages/iosft/image.png" width="200" />
+
+We can see that 
