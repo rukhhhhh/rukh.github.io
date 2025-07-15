@@ -16,6 +16,6 @@ Explore my digital footprint. 😲
 
 ## Writeups
 
-> Error 404: Writeups not found :( ... yet!
+> Error 404: not found :( ... yet!
 >
 > Watch this space 😉
