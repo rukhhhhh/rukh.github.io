@@ -9,7 +9,7 @@ Dive in to see my cybersecurity projects and writeups
 Table of Contents
 
 [Link to another page](./another-page.html).
-[SIEM](./siem.html)
+[SIEM](./siem.md)
 
 ## Header 2
 
