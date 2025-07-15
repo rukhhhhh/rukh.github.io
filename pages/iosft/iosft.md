@@ -373,5 +373,4 @@ function doGet(e) {
 
 ### Examples
 
-![Using Shortcut](example.gif)
-![Google Sheet](image.png)
+![Using Shortcut](example.gif) ![Google Sheet](image.png)
