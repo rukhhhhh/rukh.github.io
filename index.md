@@ -8,11 +8,11 @@ Explore my digital footprint. 😲
 
 ## Projects
 
-*   [SIEM](./siem.md)
-*   [Honeypot](./honeypot.md)
-*   [Web Vulnerability Scanner](./webvuln.md)
-*   [Machine Learning Intrusion Detection System](./mlids.md)
-*   [iOS Financial Tracker](./iosft.md)
+*   [SIEM](./pages/siem.md)
+*   [Honeypot](./pages/honeypot.md)
+*   [Web Vulnerability Scanner](./pages/webvuln.md)
+*   [Machine Learning Intrusion Detection System](./pages/mlids.md)
+*   [iOS Financial Tracker](./pages/iosft.md)
 
 ## Writeups
 
