@@ -2,7 +2,7 @@
 layout: default
 ---
 
-Explore my digital footprint. 
+Explore my digital footprint. 😲
 
 # Table of Contents
 
@@ -16,9 +16,9 @@ Explore my digital footprint.
 
 ## Writeups
 
-> This is a blockquote following a header.
+> Error 404: Writeups not found :( ... yet!
 >
-> When something is important enough, you do it even if the odds are not in your favor.
+> Watch this space 😉
 
 ### Header 3
 
