@@ -373,3 +373,4 @@ function doGet(e) {
 
 ### Examples
 
+![Using Shortcut](example.gif)
