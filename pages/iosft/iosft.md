@@ -376,4 +376,4 @@ function doGet(e) {
 <img src="example.gif" />
 <img src="image.png" />
 
-We can see that 
+We can see that the sheet gets populated accordingly. With automation, this sheet gets exported monthly to an annual expenses tracker for tracking on a bigger scale pulling from multiple sources (not just iOS Shortcuts). 
