@@ -373,7 +373,7 @@ function doGet(e) {
 
 ### Examples
 
-<img src="sheet.gif" width="300" height="500"/>
+<img src="example.gif" width="400" height="700"/>
 <img src="image.png" width="1000" />
 
 We can see that 
