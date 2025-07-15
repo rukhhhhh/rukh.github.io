@@ -4,14 +4,17 @@ layout: default
 
 Dive in to see my cybersecurity projects and writeups
 
-# Header 1
+# Table of Contents
 
-Table of Contents
+## Projects
 
-[Link to another page](./another-page.html).
-[SIEM](./siem.md)
+*   [SIEM](./siem.md)
+*   [Honeypot](./honeypot.md)
+*   [Web Vulnerability Scanner](./webvuln.md)
+*   [Machine Learning Intrusion Detection System](./mlids.md)
 
-## Header 2
+
+## Writeups
 
 > This is a blockquote following a header.
 >
