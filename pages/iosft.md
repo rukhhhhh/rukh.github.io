@@ -11,1334 +11,519 @@ I came up with this Financial Tracker as I got tired of manually logging my dail
 
 Using the shortcuts app and a little bit of research, I came up with a script that runs when activated with the action button. 
 
-```json
-{
-   "WFWorkflowMinimumClientVersionString": "3010",
-   "WFWorkflowMinimumClientVersion": 3010,
-   "WFWorkflowIcon": {
-      "WFWorkflowIconStartColor": 2846468607,
-      "WFWorkflowIconGlyphNumber": 59395
-   },
-   "WFWorkflowClientVersion": "3607.0.2",
-   "WFWorkflowOutputContentItemClasses": [],
-   "WFWorkflowHasOutputFallback": false,
-   "WFWorkflowActions": [
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "UUID": "930C7864-ADA4-428D-AEB1-99BC84552897",
-            "WFTextActionText": "Sharukh Khan"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuPrompt": "Expense or Income: ",
-            "WFControlFlowMode": 0,
-            "WFMenuItems": [
-               "Expense",
-               "Income"
-            ],
-            "GroupingIdentifier": "B3D6ECA2-942E-4296-A732-8CCB473A2ACE"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Expense",
-            "GroupingIdentifier": "B3D6ECA2-942E-4296-A732-8CCB473A2ACE",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "UUID": "7195C7A8-AF06-422F-BC72-34DE64B8884F",
-            "WFTextActionText": "expense"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "7195C7A8-AF06-422F-BC72-34DE64B8884F",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "expenditure"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuPrompt": "Category: ",
-            "WFControlFlowMode": 0,
-            "WFMenuItems": [
-               "Transportation",
-               "Food",
-               "Entertainment",
-               "Bills",
-               "Gifts",
-               "Personal",
-               "Health",
-               "Travel",
-               "Miscellaneous "
-            ],
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Transportation",
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Transportation",
-            "UUID": "F46F0D5C-8F4A-4EC7-9DA0-6C3F8A2D7375"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "F46F0D5C-8F4A-4EC7-9DA0-6C3F8A2D7375",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Food",
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Food",
-            "UUID": "28522DC4-4E66-4173-AB4D-BA0D3657C7F1"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "28522DC4-4E66-4173-AB4D-BA0D3657C7F1",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Entertainment",
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Entertainment",
-            "UUID": "FE283F1D-90DB-468A-BDCF-8ECFCBBFCEF3"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "FE283F1D-90DB-468A-BDCF-8ECFCBBFCEF3",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Bills",
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Bills",
-            "UUID": "D886CD55-9BDD-4BCE-8734-95109B2C9406"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "D886CD55-9BDD-4BCE-8734-95109B2C9406",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Gifts",
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Gifts",
-            "UUID": "D73E9A75-797F-4358-9065-0EE3D8CA24CB"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "D73E9A75-797F-4358-9065-0EE3D8CA24CB",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Personal",
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Personal",
-            "UUID": "9D4CA24E-EF75-44A0-B4E5-5225801AD264"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "9D4CA24E-EF75-44A0-B4E5-5225801AD264",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Health",
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Health",
-            "UUID": "1180052C-545B-48B2-AF6E-E0F095D8F537"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "1180052C-545B-48B2-AF6E-E0F095D8F537",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Travel",
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Travel",
-            "UUID": "80170CAE-3F5C-447B-874E-46FF59E8E59A"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "80170CAE-3F5C-447B-874E-46FF59E8E59A",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Miscellaneous ",
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Other",
-            "UUID": "D2FF712E-3EC9-40EF-8F5B-3FE3F28CB694"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "D2FF712E-3EC9-40EF-8F5B-3FE3F28CB694",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFControlFlowMode": 2,
-            "GroupingIdentifier": "79B0DBA3-A48C-456F-8175-8CE4146D4A91",
-            "UUID": "C0407397-34D6-4043-A11E-954B5D95A9D4"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Income",
-            "GroupingIdentifier": "B3D6ECA2-942E-4296-A732-8CCB473A2ACE",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "income",
-            "UUID": "977E9025-5472-4581-BC77-32953089E7A3"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "977E9025-5472-4581-BC77-32953089E7A3",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "expenditure"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuPrompt": "Select: ",
-            "WFControlFlowMode": 0,
-            "WFMenuItems": [
-               "Savings",
-               "Salary",
-               "PayNow / Bank Transfer",
-               "Deposit",
-               "Bonus",
-               "Other"
-            ],
-            "GroupingIdentifier": "4E2F70B0-5D32-4A47-82C3-9565F10214D7"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Savings",
-            "GroupingIdentifier": "4E2F70B0-5D32-4A47-82C3-9565F10214D7",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Savings",
-            "UUID": "0EF45AAB-E7C5-493D-A2F9-E241EAC0A9DC"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "0EF45AAB-E7C5-493D-A2F9-E241EAC0A9DC",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Salary",
-            "GroupingIdentifier": "4E2F70B0-5D32-4A47-82C3-9565F10214D7",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Salary",
-            "UUID": "AAE46077-595B-4B00-BFAB-C139FB958A13"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "AAE46077-595B-4B00-BFAB-C139FB958A13",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "PayNow / Bank Transfer",
-            "GroupingIdentifier": "4E2F70B0-5D32-4A47-82C3-9565F10214D7",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "PayNow",
-            "UUID": "5D3ACF2F-C634-4F37-8401-721E44260D7F"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "5D3ACF2F-C634-4F37-8401-721E44260D7F",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Deposit",
-            "GroupingIdentifier": "4E2F70B0-5D32-4A47-82C3-9565F10214D7",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "UUID": "28056352-8962-4E40-8F92-E429B54D7988"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "28056352-8962-4E40-8F92-E429B54D7988",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Bonus",
-            "GroupingIdentifier": "4E2F70B0-5D32-4A47-82C3-9565F10214D7",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Bonus",
-            "UUID": "69F5A44E-256D-4059-B3BF-71DE906B3893"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "69F5A44E-256D-4059-B3BF-71DE906B3893",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Other",
-            "GroupingIdentifier": "4E2F70B0-5D32-4A47-82C3-9565F10214D7",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Other",
-            "UUID": "ACA6A50F-D295-4CC2-B39D-F23EA2E58B7D"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "ACA6A50F-D295-4CC2-B39D-F23EA2E58B7D",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "category"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "GroupingIdentifier": "4E2F70B0-5D32-4A47-82C3-9565F10214D7",
-            "WFControlFlowMode": 2
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFControlFlowMode": 2,
-            "GroupingIdentifier": "B3D6ECA2-942E-4296-A732-8CCB473A2ACE",
-            "UUID": "ECBFFFB0-CBE9-4F53-A2DE-05C0137045A0"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.ask",
-         "WFWorkflowActionParameters": {
-            "WFAskActionAllowsNegativeNumbers": false,
-            "UUID": "6A3AF0C3-BA22-4F8A-87EE-9E5501371525",
-            "WFInputType": "Number",
-            "WFAskActionPrompt": "Amount?"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "6A3AF0C3-BA22-4F8A-87EE-9E5501371525",
-                  "Type": "ActionOutput",
-                  "OutputName": "Ask for Input"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "amount"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Type": "Variable",
-               "Variable": {
-                  "Value": {
-                     "VariableName": "expenditure",
-                     "Type": "Variable"
-                  },
-                  "WFSerializationType": "WFTextTokenAttachment"
-               }
-            },
-            "WFControlFlowMode": 0,
-            "WFConditionalActionString": "income",
-            "GroupingIdentifier": "A6305465-0182-4EA4-9B67-0C64F466F347",
-            "WFCondition": 4
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "WFConditions": {
-               "Value": {
-                  "WFActionParameterFilterPrefix": 0,
-                  "WFActionParameterFilterTemplates": [
-                     {
-                        "WFConditionalActionString": "Savings",
-                        "WFCondition": 4,
-                        "WFInput": {
-                           "Type": "Variable",
-                           "Variable": {
-                              "Value": {
-                                 "VariableName": "category",
-                                 "Type": "Variable"
-                              },
-                              "WFSerializationType": "WFTextTokenAttachment"
-                           }
-                        }
-                     },
-                     {
-                        "WFInput": {
-                           "Type": "Variable",
-                           "Variable": {
-                              "Value": {
-                                 "VariableName": "category",
-                                 "Type": "Variable"
-                              },
-                              "WFSerializationType": "WFTextTokenAttachment"
-                           }
-                        },
-                        "WFCondition": 4,
-                        "WFConditionalActionString": "Salary"
-                     },
-                     {
-                        "WFConditionalActionString": "Bonus",
-                        "WFInput": {
-                           "Type": "Variable",
-                           "Variable": {
-                              "Value": {
-                                 "VariableName": "category",
-                                 "Type": "Variable"
-                              },
-                              "WFSerializationType": "WFTextTokenAttachment"
-                           }
-                        },
-                        "WFCondition": 4
-                     }
-                  ],
-                  "WFContentPredicateBoundedDate": false
-               },
-               "WFSerializationType": "WFContentPredicateTableTemplate"
-            },
-            "GroupingIdentifier": "6AECA021-069A-4755-8003-06E6F4DCE108",
-            "WFControlFlowMode": 0
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Bank%20Transfer",
-            "UUID": "4E6BA2AE-BA00-4BF6-B2AA-BA4060909A53"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "4E6BA2AE-BA00-4BF6-B2AA-BA4060909A53",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "account"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "WFControlFlowMode": 2,
-            "GroupingIdentifier": "6AECA021-069A-4755-8003-06E6F4DCE108",
-            "UUID": "CDE0ECF0-0200-4435-A9B7-61D4CB749D8C"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Type": "Variable",
-               "Variable": {
-                  "Value": {
-                     "VariableName": "category",
-                     "Type": "Variable"
-                  },
-                  "WFSerializationType": "WFTextTokenAttachment"
-               }
-            },
-            "WFControlFlowMode": 0,
-            "WFConditionalActionString": "PayNow",
-            "GroupingIdentifier": "D51F6B8D-A3C2-427E-86DE-C4FC47DF1F81",
-            "WFCondition": 4
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "PayNow",
-            "UUID": "8DE28365-6C4B-4C67-BD41-A7FDA58D02A1"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "8DE28365-6C4B-4C67-BD41-A7FDA58D02A1",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "account"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "WFControlFlowMode": 2,
-            "GroupingIdentifier": "D51F6B8D-A3C2-427E-86DE-C4FC47DF1F81",
-            "UUID": "61A543E6-6E15-48E2-AB57-31D281CFD14D"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Type": "Variable",
-               "Variable": {
-                  "Value": {
-                     "VariableName": "category",
-                     "Type": "Variable"
-                  },
-                  "WFSerializationType": "WFTextTokenAttachment"
-               }
-            },
-            "WFControlFlowMode": 0,
-            "WFConditionalActionString": "Deposit",
-            "GroupingIdentifier": "A2397D1E-25C3-4682-A13E-D801AE01B893",
-            "WFCondition": 4
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Cash",
-            "UUID": "296DBEB9-16F4-41FA-AFC2-CFCC1E265729"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "296DBEB9-16F4-41FA-AFC2-CFCC1E265729",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "account"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "WFControlFlowMode": 2,
-            "GroupingIdentifier": "A2397D1E-25C3-4682-A13E-D801AE01B893",
-            "UUID": "25C15608-A71F-4285-9083-8BF3ECE01083"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Type": "Variable",
-               "Variable": {
-                  "Value": {
-                     "VariableName": "category",
-                     "Type": "Variable"
-                  },
-                  "WFSerializationType": "WFTextTokenAttachment"
-               }
-            },
-            "WFControlFlowMode": 0,
-            "WFConditionalActionString": "Other",
-            "GroupingIdentifier": "47FB68C6-6BCB-4ACF-A1C6-C4F1D20FBBEC",
-            "WFCondition": 4
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuPrompt": "Mode: ",
-            "WFControlFlowMode": 0,
-            "WFMenuItems": [
-               "PayNow",
-               "Bank Transfer",
-               "Cash"
-            ],
-            "GroupingIdentifier": "2DA87C77-DA84-49C8-9618-F12A9756EB51"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "PayNow",
-            "GroupingIdentifier": "2DA87C77-DA84-49C8-9618-F12A9756EB51",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "PayNow",
-            "UUID": "76B86A89-2D56-4769-A8B3-752EB7284CEA"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "76B86A89-2D56-4769-A8B3-752EB7284CEA",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "account"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Bank Transfer",
-            "GroupingIdentifier": "2DA87C77-DA84-49C8-9618-F12A9756EB51",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Bank Transfer",
-            "UUID": "357793FB-2515-4886-8727-F795AEE7015F"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "357793FB-2515-4886-8727-F795AEE7015F",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "account"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Cash",
-            "GroupingIdentifier": "2DA87C77-DA84-49C8-9618-F12A9756EB51",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "Cash",
-            "UUID": "579AC1DE-C0E2-4189-938D-640D4045EEDE"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "579AC1DE-C0E2-4189-938D-640D4045EEDE",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "account"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "GroupingIdentifier": "2DA87C77-DA84-49C8-9618-F12A9756EB51",
-            "WFControlFlowMode": 2
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "GroupingIdentifier": "47FB68C6-6BCB-4ACF-A1C6-C4F1D20FBBEC",
-            "WFControlFlowMode": 2
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "GroupingIdentifier": "A6305465-0182-4EA4-9B67-0C64F466F347",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuPrompt": "Payment Mode: ",
-            "WFControlFlowMode": 0,
-            "WFMenuItems": [
-               "NetsQR",
-               "PayNow",
-               "Visa",
-               "Cash"
-            ],
-            "GroupingIdentifier": "D4497B5D-BE97-486C-B2B1-36A772E8091A"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "NetsQR",
-            "GroupingIdentifier": "D4497B5D-BE97-486C-B2B1-36A772E8091A",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "NetsQR",
-            "UUID": "37C5D09A-98D6-484C-9AEC-C95CAC75D5EF"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "37C5D09A-98D6-484C-9AEC-C95CAC75D5EF",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "account"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "PayNow",
-            "GroupingIdentifier": "D4497B5D-BE97-486C-B2B1-36A772E8091A",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "PayNow",
-            "UUID": "EEAE7966-0AE9-4BE7-A510-99A981CC7534"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "EEAE7966-0AE9-4BE7-A510-99A981CC7534",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "account"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Visa",
-            "GroupingIdentifier": "D4497B5D-BE97-486C-B2B1-36A772E8091A",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "UUID": "C0E463EC-5809-4FD1-A8E7-4C88CB9E80B9",
-            "WFTextActionText": "Visa"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "C0E463EC-5809-4FD1-A8E7-4C88CB9E80B9",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "account"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "WFMenuItemTitle": "Cash",
-            "GroupingIdentifier": "D4497B5D-BE97-486C-B2B1-36A772E8091A",
-            "WFControlFlowMode": 1
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "UUID": "A6D318CF-9CBF-47BA-BE13-443E4E692A53",
-            "WFTextActionText": "Cash"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "A6D318CF-9CBF-47BA-BE13-443E4E692A53",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "account"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
-         "WFWorkflowActionParameters": {
-            "UUID": "F6A509C5-0A2A-4910-8B90-696381628ED4",
-            "GroupingIdentifier": "D4497B5D-BE97-486C-B2B1-36A772E8091A",
-            "WFControlFlowMode": 2
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
-         "WFWorkflowActionParameters": {
-            "UUID": "31C8AAB7-F59E-4E6C-86F5-8D12B1E87C44",
-            "GroupingIdentifier": "A6305465-0182-4EA4-9B67-0C64F466F347",
-            "WFControlFlowMode": 2
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.ask",
-         "WFWorkflowActionParameters": {
-            "WFAskActionPrompt": "Description: ",
-            "WFAskActionDefaultAnswer": "",
-            "UUID": "75254D9E-C20B-4090-A1B3-C0E4F02A237C"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.detect.text",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "75254D9E-C20B-4090-A1B3-C0E4F02A237C",
-                  "Type": "ActionOutput",
-                  "OutputName": "Ask for Input"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "UUID": "EE13B7F8-A129-4002-9BB0-031809E170E8"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.urlencode",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "string": "\uFFFC",
-                  "attachmentsByRange": {
-                     "{0, 1}": {
-                        "OutputUUID": "EE13B7F8-A129-4002-9BB0-031809E170E8",
-                        "Type": "ActionOutput",
-                        "OutputName": "Text"
-                     }
-                  }
-               },
-               "WFSerializationType": "WFTextTokenString"
-            },
-            "UUID": "56D622A7-E990-4A41-80F6-FA9BD202D8E4"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "56D622A7-E990-4A41-80F6-FA9BD202D8E4",
-                  "Type": "ActionOutput",
-                  "OutputName": "URL Encoded Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "detail"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": "AKfycbwtxhqmW0rY3MaWbpFlP6P1CoPLezE8xV3e_JTEt8rksEmC8Q4wKH5T2fvpSdvYCRcd",
-            "UUID": "60775F11-883F-427C-8244-D91AA9E534E6"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "OutputUUID": "60775F11-883F-427C-8244-D91AA9E534E6",
-                  "Type": "ActionOutput",
-                  "OutputName": "Text"
-               },
-               "WFSerializationType": "WFTextTokenAttachment"
-            },
-            "WFVariableName": "webappid"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
-         "WFWorkflowActionParameters": {
-            "WFTextActionText": {
-               "Value": {
-                  "string": "https://script.google.com/macros/s/\uFFFC/exec?amount=\uFFFC&expenditure=\uFFFC&account=\uFFFC&category=\uFFFC&detail=\uFFFC",
-                  "attachmentsByRange": {
-                     "{49, 1}": {
-                        "VariableName": "amount",
-                        "Type": "Variable",
-                        "Aggrandizements": [
-                           {
-                              "Type": "WFCoercionVariableAggrandizement",
-                              "CoercionItemClass": "WFStringContentItem"
-                           }
-                        ]
-                     },
-                     "{35, 1}": {
-                        "VariableName": "webappid",
-                        "Type": "Variable"
-                     },
-                     "{63, 1}": {
-                        "VariableName": "expenditure",
-                        "Type": "Variable"
-                     },
-                     "{93, 1}": {
-                        "VariableName": "detail",
-                        "Type": "Variable"
-                     },
-                     "{73, 1}": {
-                        "VariableName": "account",
-                        "Type": "Variable",
-                        "Aggrandizements": [
-                           {
-                              "Type": "WFCoercionVariableAggrandizement",
-                              "CoercionItemClass": "WFStringContentItem"
-                           }
-                        ]
-                     },
-                     "{84, 1}": {
-                        "VariableName": "category",
-                        "Type": "Variable",
-                        "Aggrandizements": [
-                           {
-                              "Type": "WFCoercionVariableAggrandizement",
-                              "CoercionItemClass": "WFStringContentItem"
-                           }
-                        ]
-                     }
-                  }
-               },
-               "WFSerializationType": "WFTextTokenString"
-            },
-            "UUID": "35C7D3DE-168A-4506-AD60-CE435563EA3D"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.detect.link",
-         "WFWorkflowActionParameters": {
-            "WFInput": {
-               "Value": {
-                  "string": "\uFFFC",
-                  "attachmentsByRange": {
-                     "{0, 1}": {
-                        "OutputUUID": "35C7D3DE-168A-4506-AD60-CE435563EA3D",
-                        "Type": "ActionOutput",
-                        "OutputName": "Text"
-                     }
-                  }
-               },
-               "WFSerializationType": "WFTextTokenString"
-            },
-            "UUID": "DF92FCED-D9B5-4B73-956D-9D0A67146F35"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.downloadurl",
-         "WFWorkflowActionParameters": {
-            "Advanced": true,
-            "WFHTTPHeaders": {
-               "Value": {
-                  "WFDictionaryFieldValueItems": []
-               },
-               "WFSerializationType": "WFDictionaryFieldValue"
-            },
-            "ShowHeaders": true,
-            "UUID": "77D8169A-C485-4E94-BD43-7A0FFD07D257",
-            "WFURL": {
-               "Value": {
-                  "string": "\uFFFC",
-                  "attachmentsByRange": {
-                     "{0, 1}": {
-                        "OutputUUID": "DF92FCED-D9B5-4B73-956D-9D0A67146F35",
-                        "Type": "ActionOutput",
-                        "OutputName": "URLs"
-                     }
-                  }
-               },
-               "WFSerializationType": "WFTextTokenString"
-            },
-            "WFHTTPMethod": "GET"
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
-         "WFWorkflowActionParameters": {
-            "Text": {
-               "Value": {
-                  "string": "\uFFFC",
-                  "attachmentsByRange": {
-                     "{0, 1}": {
-                        "OutputUUID": "77D8169A-C485-4E94-BD43-7A0FFD07D257",
-                        "Type": "ActionOutput",
-                        "OutputName": "Contents of URL"
-                     }
-                  }
-               },
-               "WFSerializationType": "WFTextTokenString"
-            }
-         }
-      },
-      {
-         "WFWorkflowActionIdentifier": "is.workflow.actions.vibrate",
-         "WFWorkflowActionParameters": {
-            "WFVibrateHapticType": "Up Direction"
-         }
-      }
-   ],
-   "WFWorkflowInputContentItemClasses": [
-      "WFAppStoreAppContentItem",
-      "WFArticleContentItem",
-      "WFContactContentItem",
-      "WFDateContentItem",
-      "WFEmailAddressContentItem",
-      "WFGenericFileContentItem",
-      "WFImageContentItem",
-      "WFiTunesProductContentItem",
-      "WFLocationContentItem",
-      "WFDCMapsLinkContentItem",
-      "WFAVAssetContentItem",
-      "WFPDFContentItem",
-      "WFPhoneNumberContentItem",
-      "WFRichTextContentItem",
-      "WFSafariWebPageContentItem",
-      "WFStringContentItem",
-      "WFURLContentItem"
-   ],
-   "WFWorkflowTypes": [
-      "Watch",
-      "NCWidget"
-   ],
-   "WFWorkflowImportQuestions": [
-      {
-         "ParameterKey": "WFTextActionText",
-         "Category": "Parameter",
-         "ActionIndex": 48,
-         "Text": "Webappid?"
-      }
-   ],
-   "WFQuickActionSurfaces": [],
-   "WFWorkflowHasShortcutInputVariables": false
+```html
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="format-detection" content="telephone=no,date=no">
+<title>Finance Tracker</title>
+<style>
+body {
+	font-family: system-ui;
+	font-size: 0.95em;
+	margin-top: 1rem;
+	margin-bottom: calc(1rem + env(safe-area-inset-bottom));
+	word-break: break-word;
 }
+
+button {
+	color: #000;
+	background-color: #e4e4ff;
+	width: 100%;
+	font-size: 1em;
+	font-weight: normal;
+	line-height: 1.8;
+	text-align: left;
+	margin: 4px 0;
+	padding: 1px 8px;
+	border: 1px #aaa;
+	border-style: solid;
+	border-radius: 8px;
+	cursor: initial;
+	touch-action: manipulation;
+}
+
+.button {
+	margin-bottom: 0;
+	border-bottom-style: none;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	cursor: auto;
+}
+.button::after {
+	content: '\25A1';
+	float: right;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.closed {
+	margin-bottom: 4px;
+	border-bottom-style: solid;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+.closed::after { content: '\2212'; }
+
+.nonbottom {
+	margin-bottom: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-style: none;
+}
+.nontop {
+	margin-top: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.gGray { background-color: #e0e0e0; }
+.gGreen { background-color: #ddffdd; }
+.gYellow { background-color: #ffeebb; }
+.gOrange { background-color: #ffddcc; }
+.gRed { background-color: #ffccdd; }
+.gBlue { background-color: #aaccff; }
+.gUnknown { background-color: #bbffff; }
+.gApple { background-color: #f6f6ff; }
+.gParams {
+	text-align: center;
+	background-color: #f8f8f8;
+}
+
+.content {
+	overflow: hidden;
+	margin-bottom: 4px;
+	padding: 3px 0 3px 8px;
+	border: 1px #aaa;
+	border-style: none solid solid solid;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.contentloop {
+	margin-bottom: 0;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-bottom-style: none;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.dotted { border-left-style: dotted; }
+.dashed { border-left-style: dashed; }
+
+.inside {
+	border-right-style: none;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.commentcontent { background-color: #ffeebb; }
+
+.row {
+	display: flex;
+	padding-right: 2px;
+}
+
+.col1 {
+	margin-right: 3px;
+	padding-right: 3px;
+	border-right-style: double;
+}
+.col2 { white-space: pre-wrap; }
+
+span.box {
+	display: inline;
+	white-space: pre-wrap;
+	margin: 2px;
+	padding: 2px 4px;
+	border-radius: 6px;
+	background-color: #fff;
+}
+span.var { font-style: italic; }
+span.magic {
+	cursor: pointer;
+	font-style: italic;
+	text-decoration: underline;
+}
+
+hr {
+	width: 0px;
+	height: 2px;
+	border: 1px solid #aaa;
+	margin: -4px auto;
+}
+
+@media (prefers-color-scheme: dark) {
+	body { background: #000; color: #eee; }
+	button { background: #514c72; color: #eee; }
+	.gGray { background-color: #555555; }
+	.gGreen { background-color: #3a6441; }
+	.gYellow { background-color: #716d33; }
+	.gOrange { background-color: #76523f; }
+	.gRed { background-color: #674044; }
+	.gBlue { background-color: #384c67; }
+	.gUnknown { background-color: #377172; }
+	.gApple { background-color: #2c2842; }
+	.gParams { background-color: #181818; }
+	.commentcontent { background-color: #716d33; }
+	span.box { background-color: #000; }
+}
+</style></head><body>
+<button class="button gParams"><b>Finance Tracker</b> (<span class="magic" onclick="magictap(112)">113</span> actions, 13 KB)</button><div class="content">
+<div class="col2">"WFQuickActionSurfaces": [],
+"WFWorkflowClientVersion": "3607.0.2",
+"WFWorkflowHasOutputFallback": false,
+"WFWorkflowHasShortcutInputVariables": false,
+"WFWorkflowIcon": {
+   "WFWorkflowIconStartColor": 2846468607,
+   "WFWorkflowIconGlyphNumber": 59395
+},
+"WFWorkflowImportQuestions": [
+   {
+      "ParameterKey": "WFTextActionText",
+      "Category": "Parameter",
+      "ActionIndex": <span class="magic" onclick="magictap(48)"><b>48</b></span>,
+      "Text": "Webappid?"
+   }
+],
+"WFWorkflowInputContentItemClasses": [
+   "WFAppStoreAppContentItem",
+   "WFArticleContentItem",
+   "WFContactContentItem",
+   "WFDateContentItem",
+   "WFEmailAddressContentItem",
+   "WFGenericFileContentItem",
+   "WFImageContentItem",
+   "WFiTunesProductContentItem",
+   "WFLocationContentItem",
+   "WFDCMapsLinkContentItem",
+   "WFAVAssetContentItem",
+   "WFPDFContentItem",
+   "WFPhoneNumberContentItem",
+   "WFRichTextContentItem",
+   "WFSafariWebPageContentItem",
+   "WFStringContentItem",
+   "WFURLContentItem"
+],
+"WFWorkflowMinimumClientVersion": <span style="color:red">3010</span>,
+"WFWorkflowMinimumClientVersionString": "<span style="color:red">3010</span>",
+"WFWorkflowOutputContentItemClasses": [],
+"WFWorkflowTypes": [
+   "Watch",
+   "NCWidget"
+]
+</div></div>
+<button class="button gYellow" id="m0">
+0 Text</button><div class="content">
+<div class="col2">Sharukh Khan</div></div>
+<button class="button gGray nonbottom" id="m1">
+1 Choose from Menu</button><div class="content contentloop">
+<div class="row"><div class="col1">MenuPrompt</div><span style="display:none">: </span><div class="col2">Expense or Income:<b>\u{space}</b></div></div>
+<div class="row"><div class="col1">MenuItems</div><span style="display:none">: </span><div class="col2">[Expense,
+Income]</div></div></div>
+<button class="button gGray nonbottom nontop" id="m2">
+2 Menu Item <span class="box">Expense</span></button><div class="content contentloop">
+<button class="button gYellow inside" id="m3">
+3 Text　»</button><div class="content inside">
+<div class="col2">expense</div></div>
+<hr><button class="gOrange inside" id="m4">
+4 Set Variable <span class="box">expenditure</span> to <span class="box"><span class="var"><b>[3 Text]</b></span></span></button><div></div>
+<button class="button gGray nonbottom inside" id="m5">
+5 Choose from Menu</button><div class="content contentloop dotted inside">
+<div class="row"><div class="col1">MenuPrompt</div><span style="display:none">: </span><div class="col2">Category:<b>\u{space}</b></div></div>
+<div class="row"><div class="col1">MenuItems</div><span style="display:none">: </span><div class="col2">[Transportation,
+Food,
+Entertainment,
+Bills,
+Gifts,
+Personal,
+Health,
+Travel,
+Miscellaneous<b>\u{space}</b>]</div></div></div>
+<button class="button gGray nonbottom nontop inside" id="m6">
+6 Menu Item <span class="box">Transportation</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m7">
+7 Text　»</button><div class="content inside">
+<div class="col2">Transportation</div></div>
+<hr><button class="gOrange inside" id="m8">
+8 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[7 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m9">
+9 Menu Item <span class="box">Food</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m10">
+10 Text　»</button><div class="content inside">
+<div class="col2">Food</div></div>
+<hr><button class="gOrange inside" id="m11">
+11 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[10 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m12">
+12 Menu Item <span class="box">Entertainment</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m13">
+13 Text　»</button><div class="content inside">
+<div class="col2">Entertainment</div></div>
+<hr><button class="gOrange inside" id="m14">
+14 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[13 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m15">
+15 Menu Item <span class="box">Bills</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m16">
+16 Text　»</button><div class="content inside">
+<div class="col2">Bills</div></div>
+<hr><button class="gOrange inside" id="m17">
+17 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[16 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m18">
+18 Menu Item <span class="box">Gifts</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m19">
+19 Text　»</button><div class="content inside">
+<div class="col2">Gifts</div></div>
+<hr><button class="gOrange inside" id="m20">
+20 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[19 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m21">
+21 Menu Item <span class="box">Personal</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m22">
+22 Text　»</button><div class="content inside">
+<div class="col2">Personal</div></div>
+<hr><button class="gOrange inside" id="m23">
+23 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[22 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m24">
+24 Menu Item <span class="box">Health</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m25">
+25 Text　»</button><div class="content inside">
+<div class="col2">Health</div></div>
+<hr><button class="gOrange inside" id="m26">
+26 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[25 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m27">
+27 Menu Item <span class="box">Travel</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m28">
+28 Text　»</button><div class="content inside">
+<div class="col2">Travel</div></div>
+<hr><button class="gOrange inside" id="m29">
+29 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[28 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m30">
+30 Menu Item <span class="box">Miscellaneous<b>\u{space}</b></span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m31">
+31 Text　»</button><div class="content inside">
+<div class="col2">Other</div></div>
+<hr><button class="gOrange inside" id="m32">
+32 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[31 Text]</b></span></span></button></div>
+<button class="gGray nontop inside" id="m33">
+33 End Menu</button></div>
+<button class="button gGray nonbottom nontop" id="m34">
+34 Menu Item <span class="box">Income</span>　▵<span class="magic" onclick="magictap(2)">2</span></button><div class="content contentloop">
+<button class="button gYellow inside" id="m35">
+35 Text　»</button><div class="content inside">
+<div class="col2">income</div></div>
+<hr><button class="gOrange inside" id="m36">
+36 Set Variable <span class="box">expenditure</span> to <span class="box"><span class="var"><b>[35 Text]</b></span></span></button><div></div>
+<button class="button gGray nonbottom inside" id="m37">
+37 Choose from Menu</button><div class="content contentloop dotted inside">
+<div class="row"><div class="col1">MenuPrompt</div><span style="display:none">: </span><div class="col2">Select:<b>\u{space}</b></div></div>
+<div class="row"><div class="col1">MenuItems</div><span style="display:none">: </span><div class="col2">[Savings,
+Salary,
+PayNow / Bank Transfer,
+Deposit,
+Bonus,
+Other]</div></div></div>
+<button class="button gGray nonbottom nontop inside" id="m38">
+38 Menu Item <span class="box">Savings</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m39">
+39 Text　»</button><div class="content inside">
+<div class="col2">Savings</div></div>
+<hr><button class="gOrange inside" id="m40">
+40 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[39 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m41">
+41 Menu Item <span class="box">Salary</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m42">
+42 Text　»</button><div class="content inside">
+<div class="col2">Salary</div></div>
+<hr><button class="gOrange inside" id="m43">
+43 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[42 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m44">
+44 Menu Item <span class="box">PayNow / Bank Transfer</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m45">
+45 Text　»</button><div class="content inside">
+<div class="col2">PayNow</div></div>
+<hr><button class="gOrange inside" id="m46">
+46 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[45 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m47">
+47 Menu Item <span class="box">Deposit</span></button><div class="content contentloop dotted inside">
+<button class="gYellow inside" id="m48">
+48 Text　»</button>
+<hr><button class="gOrange inside" id="m49">
+49 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[48 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m50">
+50 Menu Item <span class="box">Bonus</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m51">
+51 Text　»</button><div class="content inside">
+<div class="col2">Bonus</div></div>
+<hr><button class="gOrange inside" id="m52">
+52 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[51 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m53">
+53 Menu Item <span class="box">Other</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m54">
+54 Text　»</button><div class="content inside">
+<div class="col2">Other</div></div>
+<hr><button class="gOrange inside" id="m55">
+55 Set Variable <span class="box">category</span> to <span class="box"><span class="var"><b>[54 Text]</b></span></span></button></div>
+<button class="gGray nontop inside" id="m56">
+56 End Menu</button></div>
+<button class="gGray nontop" id="m57">
+57 End Menu　▵<span class="magic" onclick="magictap(34)">34</span></button><div></div>
+<button class="button " id="m58">
+58 Ask for <span class="box">Number</span> Input　»</button><div class="content">
+<div class="row"><div class="col1">AskActionAllowsNegativeNumbers</div><span style="display:none">: </span><div class="col2">false</div></div>
+<div class="row"><div class="col1">AskActionPrompt</div><span style="display:none">: </span><div class="col2">Amount?</div></div></div>
+<hr><button class="gOrange" id="m59">
+59 Set Variable <span class="box">amount</span> to <span class="box"><span class="var"><b>[58 Ask for Input]</b></span></span></button><div></div>
+<button class="button gGray nonbottom" id="m60">
+60 If <span class="box"><span class="var"><b>[expenditure]</b></span></span> <span class="box">is</span> <span class="box">income</span></button><div class="content contentloop">
+<button class="button gGray nonbottom inside" id="m61">
+61 If <span class="box">Any</span> are true<br/>　<span class="box"><span class="var"><b>[category]</b></span></span> <span class="box">is</span> <span class="box">Savings</span><br/>　<span class="box"><span class="var"><b>[category]</b></span></span> <span class="box">is</span> <span class="box">Salary</span><br/>　<span class="box"><span class="var"><b>[category]</b></span></span> <span class="box">is</span> <span class="box">Bonus</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m62">
+62 Text　»</button><div class="content inside">
+<div class="col2">Bank%20Transfer</div></div>
+<hr><button class="gOrange inside" id="m63">
+63 Set Variable <span class="box">account</span> to <span class="box"><span class="var"><b>[62 Text]</b></span></span></button></div>
+<button class="gGray nontop inside" id="m64">
+64 End If</button><div></div>
+<button class="button gGray nonbottom inside" id="m65">
+65 If <span class="box"><span class="var"><b>[category]</b></span></span> <span class="box">is</span> <span class="box">PayNow</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m66">
+66 Text　»</button><div class="content inside">
+<div class="col2">PayNow</div></div>
+<hr><button class="gOrange inside" id="m67">
+67 Set Variable <span class="box">account</span> to <span class="box"><span class="var"><b>[66 Text]</b></span></span></button></div>
+<button class="gGray nontop inside" id="m68">
+68 End If</button><div></div>
+<button class="button gGray nonbottom inside" id="m69">
+69 If <span class="box"><span class="var"><b>[category]</b></span></span> <span class="box">is</span> <span class="box">Deposit</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m70">
+70 Text　»</button><div class="content inside">
+<div class="col2">Cash</div></div>
+<hr><button class="gOrange inside" id="m71">
+71 Set Variable <span class="box">account</span> to <span class="box"><span class="var"><b>[70 Text]</b></span></span></button></div>
+<button class="gGray nontop inside" id="m72">
+72 End If</button><div></div>
+<button class="button gGray nonbottom inside" id="m73">
+73 If <span class="box"><span class="var"><b>[category]</b></span></span> <span class="box">is</span> <span class="box">Other</span></button><div class="content contentloop dotted inside">
+<button class="button gGray nonbottom inside" id="m74">
+74 Choose from Menu</button><div class="content contentloop dashed inside">
+<div class="row"><div class="col1">MenuPrompt</div><span style="display:none">: </span><div class="col2">Mode:<b>\u{space}</b></div></div>
+<div class="row"><div class="col1">MenuItems</div><span style="display:none">: </span><div class="col2">[PayNow,
+Bank Transfer,
+Cash]</div></div></div>
+<button class="button gGray nonbottom nontop inside" id="m75">
+75 Menu Item <span class="box">PayNow</span></button><div class="content contentloop dashed inside">
+<button class="button gYellow inside" id="m76">
+76 Text　»</button><div class="content inside">
+<div class="col2">PayNow</div></div>
+<hr><button class="gOrange inside" id="m77">
+77 Set Variable <span class="box">account</span> to <span class="box"><span class="var"><b>[76 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m78">
+78 Menu Item <span class="box">Bank Transfer</span></button><div class="content contentloop dashed inside">
+<button class="button gYellow inside" id="m79">
+79 Text　»</button><div class="content inside">
+<div class="col2">Bank Transfer</div></div>
+<hr><button class="gOrange inside" id="m80">
+80 Set Variable <span class="box">account</span> to <span class="box"><span class="var"><b>[79 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m81">
+81 Menu Item <span class="box">Cash</span></button><div class="content contentloop dashed inside">
+<button class="button gYellow inside" id="m82">
+82 Text　»</button><div class="content inside">
+<div class="col2">Cash</div></div>
+<hr><button class="gOrange inside" id="m83">
+83 Set Variable <span class="box">account</span> to <span class="box"><span class="var"><b>[82 Text]</b></span></span></button></div>
+<button class="gGray nontop inside" id="m84">
+84 End Menu</button></div>
+<button class="gGray nontop inside" id="m85">
+85 End If　▵<span class="magic" onclick="magictap(73)">73</span></button></div>
+<button class="button gGray nonbottom nontop" id="m86">
+86 Otherwise　▵<span class="magic" onclick="magictap(60)">60</span></button><div class="content contentloop">
+<button class="button gGray nonbottom inside" id="m87">
+87 Choose from Menu</button><div class="content contentloop dotted inside">
+<div class="row"><div class="col1">MenuPrompt</div><span style="display:none">: </span><div class="col2">Payment Mode:<b>\u{space}</b></div></div>
+<div class="row"><div class="col1">MenuItems</div><span style="display:none">: </span><div class="col2">[NetsQR,
+PayNow,
+Visa,
+Cash]</div></div></div>
+<button class="button gGray nonbottom nontop inside" id="m88">
+88 Menu Item <span class="box">NetsQR</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m89">
+89 Text　»</button><div class="content inside">
+<div class="col2">NetsQR</div></div>
+<hr><button class="gOrange inside" id="m90">
+90 Set Variable <span class="box">account</span> to <span class="box"><span class="var"><b>[89 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m91">
+91 Menu Item <span class="box">PayNow</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m92">
+92 Text　»</button><div class="content inside">
+<div class="col2">PayNow</div></div>
+<hr><button class="gOrange inside" id="m93">
+93 Set Variable <span class="box">account</span> to <span class="box"><span class="var"><b>[92 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m94">
+94 Menu Item <span class="box">Visa</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m95">
+95 Text　»</button><div class="content inside">
+<div class="col2">Visa</div></div>
+<hr><button class="gOrange inside" id="m96">
+96 Set Variable <span class="box">account</span> to <span class="box"><span class="var"><b>[95 Text]</b></span></span></button></div>
+<button class="button gGray nonbottom nontop inside" id="m97">
+97 Menu Item <span class="box">Cash</span></button><div class="content contentloop dotted inside">
+<button class="button gYellow inside" id="m98">
+98 Text　»</button><div class="content inside">
+<div class="col2">Cash</div></div>
+<hr><button class="gOrange inside" id="m99">
+99 Set Variable <span class="box">account</span> to <span class="box"><span class="var"><b>[98 Text]</b></span></span></button></div>
+<button class="gGray nontop inside" id="m100">
+100 End Menu</button></div>
+<button class="gGray nontop" id="m101">
+101 End If　▵<span class="magic" onclick="magictap(86)">86</span></button><div></div>
+<button class="button " id="m102">
+102 Ask for Text Input　»</button><div class="content">
+<div class="row"><div class="col1">AskActionPrompt</div><span style="display:none">: </span><div class="col2">Description:<b>\u{space}</b></div></div>
+<div class="row"><div class="col1">AskActionDefaultAnswer</div><span style="display:none">: </span><div class="col2"></div></div></div>
+<hr><button class="gYellow" id="m103">
+103 Get Text from <span class="box"><span class="var"><b>[102 Ask for Input]</b></span></span>　»</button>
+<hr><button class="gBlue" id="m104">
+104 URL Encode <span class="box"><span class="var"><b>[103 Text]</b></span></span>　»</button>
+<hr><button class="gOrange" id="m105">
+105 Set Variable <span class="box">detail</span> to <span class="box"><span class="var"><b>[104 URL Encoded Text]</b></span></span></button><div></div>
+<button class="button gYellow" id="m106">
+106 Text　»</button><div class="content">
+<div class="col2"></div></div>
+<hr><button class="gOrange" id="m107">
+107 Set Variable <span class="box">webappid</span> to <span class="box"><span class="var"><b>[106 Text]</b></span></span></button><div></div>
+<button class="button gYellow" id="m108">
+108 Text　»</button><div class="content">
+<div class="col2">https://script.google.com/macros/s/<span class="var"><b>[webappid]</b></span>/exec?amount=<span class="var"><b>[amount</b> as Text<b>]</b></span>&amp;expenditure=<span class="var"><b>[expenditure]</b></span>&amp;account=<span class="var"><b>[account</b> as Text<b>]</b></span>&amp;category=<span class="var"><b>[category</b> as Text<b>]</b></span>&amp;detail=<span class="var"><b>[detail]</b></span></div></div>
+<hr><button class="gBlue" id="m109">
+109 Get URLs from <span class="box"><span class="var"><b>[108 Text]</b></span></span>　»</button>
+<hr><button class="button gGreen" id="m110">
+110 Get Contents of URL <span class="box"><span class="var"><b>[109 URLs]</b></span></span>　»</button><div class="content">
+<div class="row"><div class="col1">Advanced</div><span style="display:none">: </span><div class="col2">true</div></div>
+<div class="row"><div class="col1">HTTPHeaders</div><span style="display:none">: </span><div class="col2">{}</div></div>
+<div class="row"><div class="col1">ShowHeaders</div><span style="display:none">: </span><div class="col2">true</div></div>
+<div class="row"><div class="col1">HTTPMethod</div><span style="display:none">: </span><div class="col2">GET</div></div></div>
+<hr><button class="button gYellow" id="m111">
+111 Show Result</button><div class="content">
+<div class="col2"><span class="var"><b>[110 Contents of URL]</b></span></div></div>
+<button class="button gRed" id="m112">
+112 Vibrate Device</button><div class="content">
+<div class="row"><div class="col1">VibrateHapticType</div><span style="display:none">: </span><div class="col2">Up Direction</div></div></div>
+<script>
+for (b of document.getElementsByClassName('button')) {
+	b.addEventListener('click', function() {
+		this.classList.toggle('closed');
+		let s = this.nextElementSibling;
+		s.style.display = getComputedStyle(s).display==='none' ? 'block' : 'none';
+})}
+
+function magictap(id) {
+	event.stopPropagation();
+	let e = document.getElementById('m'+id);
+	let p = e;
+	while ((p = p.parentNode).tagName.toLowerCase() === 'div') {
+		p.style.display = 'block';
+		p.previousElementSibling.classList.remove('closed');
+	}
+	setTimeout(function(){ e.scrollIntoView({block:'nearest',behavior:'smooth'}); }, 10);
+}
+</script></body></html>
 ```
