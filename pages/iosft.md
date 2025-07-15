@@ -5,7 +5,9 @@ I came up with this Financial Tracker as I got tired of manually logging my dail
 
 ## Table of Contents
 
-* [iOS Shorcuts](#ios-shortcuts)
+* [iOS Shortcuts](#ios-shortcuts)
+* [Google Sheets (Apps Script)](#google-sheets)
+* [Examples](#examples)
 
 ### iOS Shortcuts
 
@@ -306,3 +308,68 @@ https://script.google.com/macros/s/〔webappid〕/exec?amount=〔amount as Text�
 〔112〕 Vibrate Device
 • VibrateHapticType: Up Direction
 ```
+
+### Google Sheets
+
+Next, we write an Apps Script that will handle the data passed to the API. 
+
+```js
+var spreadsheet = SpreadsheetApp.openById("REDACTED ON PURPOSE");
+
+function doGet(e) {
+  try {
+    var amount = e.parameters.amount[0]; 
+    var mode = e.parameters.expenditure[0].toLowerCase();
+    var account = e.parameters.account[0];
+    var category = e.parameters.category[0];
+    var detail = e.parameters.detail[0];
+    var now = new Date();
+    var date = Utilities.formatDate(now, "GMT+8", "dd/MM/yyyy");
+
+    var sheetName = "Transactions";
+    var sheet = spreadsheet.getSheetByName(sheetName);
+    if (!sheet) {
+      throw new Error("Sheet not found");
+    }
+
+    var startRow = 5;
+    var rowToWrite;
+
+
+    function findFirstEmptyRow(sheet, startRow, column) {
+    var lastRow = sheet.getLastRow();
+    if (lastRow < startRow) {
+      return startRow;
+    }
+    var numRows = lastRow - startRow + 1;
+    var values = sheet.getRange(startRow, column, numRows, 1).getValues();
+
+    for (var i = 0; i < values.length; i++) {
+      if (!values[i][0]) { // empty cell found
+        return startRow + i;
+      }
+    }
+    return lastRow + 1;
+    }
+
+    if (mode === "expense") {
+      rowToWrite = findFirstEmptyRow(sheet, startRow, 2); // Column B = 2
+      sheet.getRange(rowToWrite, 2, 1, 5).setValues([[date, amount, detail, category, account]]);
+      return ContentService.createTextOutput("Success! Expense row added.");
+    } else if (mode === "income") {
+      rowToWrite = findFirstEmptyRow(sheet, startRow, 8); // Column H = 8
+      sheet.getRange(rowToWrite, 8, 1, 5).setValues([[date, amount, detail, category, account]]);
+      return ContentService.createTextOutput("Success! Income row added.");
+    } else {
+      return ContentService.createTextOutput("Mode not handled: " + mode);
+    }
+
+  } catch (error) {
+    Logger.log(error);
+    return ContentService.createTextOutput("Error: " + error.message);
+  }
+}
+```
+
+### Examples
+
