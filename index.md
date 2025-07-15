@@ -2,7 +2,7 @@
 layout: default
 ---
 
-Dive in to see my projects and writeups!
+Explore my digital footprint. 
 
 # Table of Contents
 
