@@ -2,7 +2,7 @@
 layout: default
 ---
 
-Dive in to see my cybersecurity projects and writeups
+Dive in to see my projects and writeups!
 
 # Table of Contents
 
@@ -12,7 +12,7 @@ Dive in to see my cybersecurity projects and writeups
 *   [Honeypot](./honeypot.md)
 *   [Web Vulnerability Scanner](./webvuln.md)
 *   [Machine Learning Intrusion Detection System](./mlids.md)
-
+*   [iOS Financial Tracker](./iosft.md)
 
 ## Writeups
 
