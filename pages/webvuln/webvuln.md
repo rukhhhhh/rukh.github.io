@@ -38,12 +38,11 @@ pip install requests
 ### 📁 Project Structure
 
 Web-Vulnerability-Scanner/
-│
-├── scanner.py              # Main scanner script
-├── sql_payloads.txt        # Database of SQL injection payloads
-├── xss_payloads.txt        # Database of XSS payloads
-├── targets.txt             # Example file with list of URLs to scan
-└── README.md               # This file
+scanner.py              # Main scanner script
+sql_payloads.txt        # Database of SQL injection payloads
+xss_payloads.txt        # Database of XSS payloads
+targets.txt             # Example file with list of URLs to scan
+README.md               # This file
 
 ### Project Implementation
 
