@@ -26,6 +26,7 @@ A Python-based automated security testing tool designed to identify common web a
 Install the required dependency using pip:
 ```bash
 pip install requests
+```
 
 ### Project Implementation
 
