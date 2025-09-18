@@ -37,7 +37,7 @@ pip install requests
 
 ### 📁 Project Structure
 
-
+```bash
 project-name/
 ├── src/
 │   ├── main.py
@@ -53,6 +53,7 @@ Web-Vulnerability-Scanner/
 - xss_payloads.txt        # Database of XSS payloads
 - targets.txt             # Example file with list of URLs to scan
 - README.md               # This file
+```
 
 ### Project Implementation
 
