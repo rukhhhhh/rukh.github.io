@@ -8,6 +8,13 @@
 
 A Python-based automated security testing tool designed to identify common web application vulnerabilities from the **OWASP Top 10**. This scanner demonstrates core penetration testing methodologies, including fuzzing, payload injection, and response analysis.
 
+**Disclaimer**
+This tool is developed for educational and ethical testing purposes only.
+You must have explicit permission to test any website or network that you do not own.
+Do not use this tool on any system where you do not have authorized access.
+The developer is not responsible for any misuse or damage caused by this program.
+It is the end user's responsibility to obey all applicable local, state, and federal laws.
+
 ## 🚀 Features
 
 - **SQL Injection (SQLi) Detection:** Tests for both error-based and union-based SQL injection vulnerabilities in GET parameters.
@@ -27,6 +34,16 @@ Install the required dependency using pip:
 ```bash
 pip install requests
 ```
+
+### 📁 Project Structure
+
+Web-Vulnerability-Scanner/
+│
+├── scanner.py              # Main scanner script
+├── sql_payloads.txt        # Database of SQL injection payloads
+├── xss_payloads.txt        # Database of XSS payloads
+├── targets.txt             # Example file with list of URLs to scan
+└── README.md               # This file
 
 ### Project Implementation
 
@@ -61,3 +78,16 @@ Author: Sharukh Khan
 Description: A simple scanner to detect SQL Injection and XSS vulnerabilities.
 """
 ```
+
+#### Phase 3: Testing & Refinement
+
+1. Used Damn Vulnerable Web App (DVWA) on a local machine to safely test and debug the scanner's effectiveness.
+2. Validated the scanner against known, purposefully vulnerable sites like http://testphp.vulnweb.com.
+3. Refined regex patterns and added multiple detection criteria to minimize incorrect findings.
+4. Added colored terminal output for better readability of results.
+
+#### Future Enhancements
+
+1. Add support for POST request data fuzzing.
+2. Implement a more sophisticated crawler to discover links and forms automatically.
+3. Incorporate more vulnerability checks (e.g. Command Injection).
