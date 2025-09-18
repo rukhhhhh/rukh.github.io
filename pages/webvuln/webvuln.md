@@ -3,6 +3,12 @@
 ## Table of Contents
 
 * [Overview](#overview)
+* [Features](#features)
+* [Installation & Usage](#installation-and-usage)
+* [Prerequisites](#prerequisites)
+* [Project Structure](#project-structure)
+* [Project Implementation](#project-implementation)
+* [Future Enhancements](#future-enhancements)
 
 ### Overview
 
