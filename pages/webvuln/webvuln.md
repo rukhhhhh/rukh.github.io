@@ -9,6 +9,7 @@
 A Python-based automated security testing tool designed to identify common web application vulnerabilities from the **OWASP Top 10**. This scanner demonstrates core penetration testing methodologies, including fuzzing, payload injection, and response analysis.
 
 **Disclaimer**
+
 This tool is developed for educational and ethical testing purposes only.
 You must have explicit permission to test any website or network that you do not own.
 Do not use this tool on any system where you do not have authorized access.
