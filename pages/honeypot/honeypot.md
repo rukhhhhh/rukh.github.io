@@ -72,7 +72,7 @@ I compiled a list of IOCs, including malicious IP addresses, known-bad usernames
 Top Targeted Service: SSH (22/TCP)
 Common Usernames: admin, root, user
 
-##### Security Considerations
+### Security Considerations
 
 1. The honeypot was deployed on an isolated cloud VPS with no connections to my personal or corporate networks.
 2. The server was explicitly set up to be probed and attacked. All activities were monitored and logged for research purposes only.
