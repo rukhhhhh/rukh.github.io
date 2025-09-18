@@ -36,6 +36,10 @@ The project leverages T-Pot, a popular all-in-one honeypot platform based on Doc
 
 #### Phase 2
 
+Downloading T-Pot
 
-
+```bash
+git clone https://github.com/telekom-security/tpotce
+cd tpotce/iso/installer/
+```
 
