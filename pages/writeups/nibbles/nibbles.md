@@ -21,26 +21,26 @@ We run a basic `nmap` scan to see if we get any hits. <br>
 ![scan](images/nmap_initial_scan.png)
 
 We see that the host has ports 22 & 80 open, which happen to be running the services SSH & HTTP respectively. <br>
-They also are running OpenSSH and Apache, on a Ubuntu Linux OS. <br>
+They also are running `OpenSSH` and `Apache`, on a `Ubuntu Linux` OS. <br>
 
-Let's run a full tcp scan with nmap to scan all 65,535 ports, to identify any other ports/services. <br>
+Let's run a full tcp scan with `nmap` to scan all 65,535 ports, to identify any other ports/services. <br>
 
 This will take a while, so after moving it to the background, we can do some banner grabbing to move on with our enumeration. <br>
 
 ![bannergrab](images/banner_grab_port_22.png)
 ![bannergrab](images/banner_grab_port_80.png)
 
-Using nc to perform banner grabbing, we can confirm the nmap results that the target is running an Apache web server and an OpenSSH server. <br>
-Checking our nmap scan, we can see that the full port scan did not find any additional ports. <br>
+Using `nc` to perform banner grabbing, we can confirm the `nmap` results that the target is running an `Apache` web server and an `OpenSSH` server. <br>
+Checking our `nmap` scan, we can see that the full port scan did not find any additional ports. <br>
 
 ![scan](images/nmap_full_tcp_scan.png)
 
-Let's try to run an nmap script scan to uncover anything else. <br>
+Let's try to run an `nmap` script scan to uncover anything else. <br>
 This runs relatively quickly because we specify the only 2 open ports on the target. <br>
 
 ![scan](images/nmap_script_scan.png)
 
-Let's also try to enumerate common web application directories using the http-enum script. <br>
+Let's also try to enumerate common web application directories using the `http-enum` script. <br>
 
 ![scan](images/nmap_http_enum.png)
 
@@ -48,30 +48,30 @@ We can see that both of these scans did not help us identify anything useful. <b
 
 ### Footprinting
 
-I tried to curl the target ip to see what is returned from the page. <br>
+I tried to `curl` the target ip to see what is returned from the page. <br>
 
 ![curl](images/curl_target.png)
 
 The comments in the html mentions a directory named nibbleblog. <br>
-Using whatweb, we identify the web application in use. <br>
+Using `whatweb`, we identify the web application in use. <br>
 
 ![whatweb](images/whatweb_target_nibbleblog.png)
 
-Now, we can see that it's using HTML5, jQuery and PHP. The blogging engine seems to be Nibbleblog. <br>
+Now, we can see that it's using `HTML5`, `jQuery` and `PHP`. The blogging engine seems to be `Nibbleblog`. <br>
 
 ![nibbleblog](images/nibbleblog.png)
 
 We don't find anything interesting in the /nibbleblog directory in Firefox. <br>
-Let's try to use Gobuster to check for other accessible pages or directories. <br>
+Let's try to use `Gobuster` to check for other accessible pages or directories. <br>
 
 ![gobuster](images/gobuster_nibbleblog.png)
 
-We see that the admin.php page is present, there is also a README page available. <br>
-By curling the README page, we identify: <br>
+We see that the admin.php page is present, there is also a `README` page available. <br>
+By curling the `README` page, we identify: <br>
 
 ![readme](images/curl_target_readme.png)
 
-the version of Nibbleblog: v4.0.3 <br>
+the version of `Nibbleblog: v4.0.3` <br>
 
 
 
