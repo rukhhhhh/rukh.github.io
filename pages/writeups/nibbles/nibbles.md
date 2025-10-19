@@ -77,8 +77,12 @@ the version of `Nibbleblog: v4.0.3` <br>
 After revisiting the `Gobuster` output, I noticed that there are Status 301 codes in `/content` & `/plugins` <br>
 We visit the `/content` page to see if there's anything useful. <br>
 
+--
 
-### Initial-Foothold
+
+### InitialFoothold
+
+--
 
 
 
@@ -92,4 +96,6 @@ We use `python3 -c 'import pty; pty.spawn("/bin/bash")'` to get us a more intuit
 
 
 
+--
 
+By using `LinEnum.sh` from [GitHub]([https://github.com](https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh) "LinEnum.sh")
