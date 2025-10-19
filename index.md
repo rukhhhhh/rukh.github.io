@@ -16,6 +16,4 @@ Explore my digital footprint. 😲
 
 ## Writeups
 
-> Error 404: not found :( ... yet!
->
-> Watch this space 😉
+* [HTB - Nibbles](./pages/writeups/nibbles.md)
