@@ -16,7 +16,7 @@ This vulnerability is particularly dangerous as it can lead to remote code execu
 ### Enumeration
 
 The first step is to get an idea of the available open ports and the services running. <br>
-We run a basic nmap scan to see if we get any hits. <br>
+We run a basic `nmap` scan to see if we get any hits. <br>
 
 ![scan](images/nmap_initial_scan.png)
 
