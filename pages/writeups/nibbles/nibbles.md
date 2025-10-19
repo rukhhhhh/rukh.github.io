@@ -78,7 +78,7 @@ After revisiting the `Gobuster` output, I noticed that there are Status 301 code
 We visit the `/content` page to see if there's anything useful. <br>
 
 
-### Initial Foothold
+### InitialFoothold
 
 
 
