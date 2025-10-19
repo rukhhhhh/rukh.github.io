@@ -16,4 +16,4 @@ Explore my digital footprint. 😲
 
 ## Writeups
 
-* [HTB - Nibbles](./pages/writeups/nibbles.md)
+* [HTB - Nibbles](./pages/writeups/nibbles/nibbles.md)
