@@ -67,7 +67,7 @@ Web-Vulnerability-Scanner/
 2. Implemented the argparse module to handle user input for single URLs (-u) or wordlists (-l).
 3. Created two foundational payload files:
    - sql_payloads.txt: Contains classic test strings like ', ' OR '1'='1, and UNION SELECT NULL--.
-   - xss_payloads.txt: Contains simple and polyglot payloads like <script>alert(1)</script> and "><img src=x onerror=alert(1)>.
+   - xss_payloads.txt: Contains simple and polyglot payloads like ``` <script>alert(1)</script> and "><img src=x onerror=alert(1)>.```
 
 4. Built the fuzz_url function which:
    - Parses a URL to isolate its parameters.
